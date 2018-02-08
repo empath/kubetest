@@ -5,10 +5,10 @@ podTemplate(label: 'mypod', containers: [
   volumes: [emptyDirVolume(memory: false, mountPath: '/var/lib/docker')]) {
 
     node ('mypod') {
-        stage 'Run a docker thing'
         container('docker') {
             stage 'Docker thing1'
             sh 'docker pull redis'
+            sh 'docker ps'
         }
 
     }
