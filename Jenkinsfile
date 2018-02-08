@@ -1,9 +1,11 @@
 pipeline {
   agent any
   stages {
-    stage('test') {
-      steps {
-        sh 'echo hello world'
+    node('jenkins-dind') { 
+      stage ('test') {
+        container('dind') {
+          sh 'echo hello world'
+        }
       }
     }
   }
